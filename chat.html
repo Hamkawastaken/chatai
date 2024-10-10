@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artificial Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="min-h-screen flex flex-col md:flex-row bg-[#212121]">
+      <div
+        class="w-full md:w-64 bg-[#171717] text-gray-100 flex flex-row justify-between items-center md:justify-start md:items-start md:flex-col md:gap-y-5 px-4 py-2"
+      >
+        <div class="text-2xl font-bold">Menu</div>
+
+        <div class="hamburger md:hidden">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="nav-links hidden md:block w-full">
+          <a
+            href="#"
+            class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition"
+          >
+            <i class="fas fa-home mr-3"></i>
+            Home
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition"
+          >
+            <i class="fas fa-search mr-3"></i>
+            Explore
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition"
+          >
+            <i class="fas fa-cog mr-3"></i>
+            Settings
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition"
+          >
+            <i class="fas fa-sign-out-alt mr-3"></i>
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="flex-grow w-full p-4 md:p-6 flex flex-col items-center">
+        <div
+          id="answer"
+          class="w-full bg-[#2F2F2F] p-4 rounded-lg shadow-md mb-4 overflow-auto h-96 text-white font-sans leading-relaxed"
+        ></div>
+
+        <div
+          class="w-full flex items-center bg-[#2F2F2F] px-5 py-2 rounded-full shadow-lg space-x-3"
+        >
+          <input
+            autocomplete="off"
+            type="text"
+            id="question"
+            class="flex-grow bg-[#2F2F2F] text-white p-2.5 rounded-full focus:outline-none placeholder-gray-500"
+            placeholder="Masukkan pertanyaan anda..."
+          />
+
+          <button
+            id="send"
+            onclick="sendReq()"
+            class="text-purple-500 hover:text-purple-400 pr-2"
+          >
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
