@@ -13,11 +13,26 @@ async function sendReq() {
       throw new Error(`Request failed with status: ${response.status}`);
     }
     const data = await response.json();
-    answers.innerHTML = data.result;
-    console.log(data);
+    var htmlResult = renderApiResult(data.result);
+    answers.innerHTML = htmlResult;
+    // answers.innerHTML = data.result;
+    // console.log(data);
   } catch (error) {
     console.log(error.massage);
   }
+}
+
+function renderApiResult(result) {
+  // Pisahkan teks berdasarkan blok kode dan teks lainnya
+  let formattedHtml = result
+    .replace(/```html([^```]+)/g, "<pre><code>$1</code></pre>") // Mengubah blok kode menjadi <pre><code>
+    .replace(/### (.+)/g, "<h3>$1</h3>") // Mengubah heading menjadi <h3>
+    .replace(/\n/g, "<br>") // Mengganti line break dengan <br>
+    .replace(/\- (.+)/g, "<li>$1</li>") // Mengganti bullet point dengan <li>
+    .replace(/(\n\n)/g, "</p><p>") // Memisahkan paragraf
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  // Tambahkan wrapper <p> di awal dan akhir
+  return `<p>${formattedHtml}</p>`;
 }
 
 // Fungsi untuk menampilkan respon API
